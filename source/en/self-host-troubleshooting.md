@@ -247,6 +247,25 @@ For users that rely on configuring a reverse proxy, please consider this post on
 
 <a href="https://forum.invoiceninja.com/t/selfhosting-setup-failing/5651/8">Reverse Proxy Invoice Ninja</a>
 
+#### Unable to update with webui behind reverse proxy
+
+For users that are unable to update with the webui, try increasing the timeout with your reverse proxy. Timeouts differ and depend on hardware. 
+For example, a working HAProxy configuration on old hardware (Virtualized Xeon E2677v2, DDR3 memory) is as follows:
+
+```
+frontend SNI
+    ...
+    timeout client		30000
+    timeout http-keep-alive 120s
+    timeout http-request 120s
+
+backend billing.example.com_ipvANY
+    ...
+    timeout connect		30000
+    timeout server		30000
+    retries			3
+```
+
 ### Problems with migration
 
 If you are experiencing issues with the migration not running as expected please run through the following checklist:
