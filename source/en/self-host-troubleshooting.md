@@ -255,14 +255,14 @@ For example, a working HAProxy configuration for Invoice Ninja in a container on
 ```
 frontend SNI
     #...the rest of config
-    timeout client              30s
+    timeout client              70s
     timeout http-keep-alive     120s
     timeout http-request        120s
 
 backend billing.example.com_ipvANY
     #...the rest of config
-    timeout connect             30s
-    timeout server              30s
+    timeout connect             70s
+    timeout server              70s
     retries                     3
 ```
 
