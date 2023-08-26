@@ -249,18 +249,18 @@ For users that rely on configuring a reverse proxy, please consider this post on
 
 #### Unable to update with webui behind reverse proxy
 
-For users that are unable to update with the webui, try increasing the timeout with your reverse proxy. Timeouts differ and depend on hardware. 
-For example, a working HAProxy configuration on old hardware (Virtualized Xeon E2677v2, DDR3 memory) is as follows:
+If you're unable to update using the Admin portal, try increasing the timeout with your reverse proxy. Timeouts differ depending on hardware. 
+For example, a working HAProxy configuration for Invoice Ninja in a container on older hardware Xeon E2677v2, DDR3 memory, SSD storage is as follows:
 
 ```
 frontend SNI
-    ...
+    #...the rest of config
     timeout client              30s
     timeout http-keep-alive     120s
     timeout http-request        120s
 
 backend billing.example.com_ipvANY
-    ...
+    #...the rest of config
     timeout connect             30s
     timeout server              30s
     retries                     3
