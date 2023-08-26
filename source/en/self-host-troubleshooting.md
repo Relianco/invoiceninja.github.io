@@ -255,15 +255,15 @@ For example, a working HAProxy configuration on old hardware (Virtualized Xeon E
 ```
 frontend SNI
     ...
-    timeout client		30000
+    timeout client		30s
     timeout http-keep-alive 120s
     timeout http-request 120s
 
 backend billing.example.com_ipvANY
     ...
-    timeout connect		30000
-    timeout server		30000
-    retries			3
+    timeout connect		30s
+    timeout server		30s
+    retries			    3
 ```
 
 ### Problems with migration
